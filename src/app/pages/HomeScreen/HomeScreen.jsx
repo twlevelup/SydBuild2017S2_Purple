@@ -45,10 +45,12 @@ export const HomeScreenComponent = () => {
 };
 
 export const HomeScreenButtons = {
-  LEFT: () => ButtonAction.goToPage('/news'), // this will make the left button navigate to the news page
-  RIGHT: () => ButtonAction.goToPage('/contacts'),
   TOP: () => ButtonAction.scrollUp(),
   BOTTOM: () => ButtonAction.scrollDown(),
+
+  LEFT: () => ButtonAction.goToPage('/new'), // this will make the left button navigate to the news page
+  RIGHT: () => ButtonAction.goToPage('/contacts'),
+
 };
 
 export default WithButtonConfigs(HomeScreenComponent, HomeScreenButtons);

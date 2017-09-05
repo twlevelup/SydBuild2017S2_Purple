@@ -25,9 +25,13 @@ describe('HomeScreenComponent component', () => {
     expect(homeScreenComponent.find('#home-page-content')).toBePresent();
   });
 
-  test('it should have a LEFT button config of going to Counter Page with an initial number value of 5', () => {
+  test('it should have a LEFT button config of going to News Page', () => {
     HomeScreenButtons.LEFT();
+<<<<<<< HEAD
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/news');
+=======
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/new');
+>>>>>>> [first page][jae-hee/hossein] check-in dance initial commit
   });
 
   test('it should have a RIGHT button config of going to contactList page', () => {
