@@ -1,6 +1,6 @@
 # LevelUp Watch Edition App Development Environment ★★
 
-[![Build Status](https://circleci.com/gh/twlevelup/watch_edition_react.png)](https://circleci.com/gh/twlevelup/watch_edition_react)
+[![Build Status](https://travis-ci.org/twlevelup/SydBuild2017S2_Purple.svg?branch=master)](https://travis-ci.org/twlevelup/SydBuild2017S2_Purple)
 
 This git repo contains all the code you need to prototype apps for the Proto Watch.
 
@@ -12,9 +12,7 @@ See the [Installation Instructions](https://github.com/twlevelup/watch_edition_r
 
 ## Continuous Integration
 
-This project is continuously deployed to heroku by [Circle CI](https://circleci.com).
-
-The project is continuously deployed to heroku by Travis CI
+The project is continuously deployed to heroku by [Travis CI](https://travis-ci.org)
 
 
 ## Setup
@@ -27,6 +25,9 @@ $ ./go setup
 Visit `http://localhost:8000/` from your browser of choice.
 Server is visible from the local network as well.
 
+## Production
+
+http://twlevelup-syd-2017-s2-purple.herokuapp.com/
 
 ### Before you commit
 
@@ -38,15 +39,3 @@ Server is visible from the local network as well.
 ```npm run precommit``` (Windows)
 4. Fix any errors
 5. Run ```git push```
-
-### Checking the build status
-
-To view the build status and get notifications about the build status:
-
-Add the following XML config to CCTray or CCMenu on your dev machine
-
-```https://circleci.com/gh/twlevelup/watch_edition_react.cc.xml```
-
-You can also access the CI server and view the status of the build here [Circle CI](https://circleci.com/gh/twlevelup/watch_edition_react)
-
-
