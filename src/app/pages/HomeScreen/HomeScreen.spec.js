@@ -27,11 +27,7 @@ describe('HomeScreenComponent component', () => {
 
   test('it should have a LEFT button config of going to News Page', () => {
     HomeScreenButtons.LEFT();
-<<<<<<< HEAD
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/news');
-=======
-    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/new');
->>>>>>> [first page][jae-hee/hossein] check-in dance initial commit
   });
 
   test('it should have a RIGHT button config of going to contactList page', () => {
@@ -49,4 +45,3 @@ describe('HomeScreenComponent component', () => {
     expect(ButtonAction.scrollDown).toHaveBeenCalled();
   });
 });
-

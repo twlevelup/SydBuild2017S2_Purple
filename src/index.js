@@ -8,7 +8,6 @@ import ContactScreen from './app/pages/ContactListScreen/ContactListScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
 import contacts from './app/data/contacts.json';
 import WatchApp from './framework';
-import NewsScreen from './app/pages/NewsScreen/NewsScreen';
 
 
 const pages = [
