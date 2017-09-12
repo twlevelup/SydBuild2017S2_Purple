@@ -30,9 +30,9 @@ describe('HomeScreenComponent component', () => {
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/news');
   });
 
-  test('it should have a RIGHT button config of going to contactList page', () => {
+  test('it should have a RIGHT button config of going to education page', () => {
     HomeScreenButtons.RIGHT();
-    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/education');
   });
 
   test('it should have a TOP button config of scrolling page up', () => {

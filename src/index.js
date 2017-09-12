@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import NewsScreen from './app/pages/NewsScreen/NewsScreen';
+import EducationScreen from './app/pages/EducationScreen/EducationScreen';
 import HomeScreen from './app/pages/HomeScreen/HomeScreen';
 import CounterScreen from './app/pages/CounterScreen/CounterScreen';
 import ContactScreen from './app/pages/ContactListScreen/ContactListScreen';
@@ -16,6 +17,7 @@ const pages = [
   { path: '/counter', Component: CounterScreen },
   { path: '/notfound', Component: NotFoundScreen },
   { path: '/news', Component: NewsScreen },
+  { path: '/education', Component: EducationScreen },
 ];
 
 ReactDOM.render(
