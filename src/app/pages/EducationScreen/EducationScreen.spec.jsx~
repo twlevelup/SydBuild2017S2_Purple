@@ -29,7 +29,7 @@ describe('<EducationScreenComponent />', () => {
 
     test('it should have a RIGHT button config of going to contactList page', () => {
       EducationScreenButtons.RIGHT();
-      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/Education');
+      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
     });
 
     test('it should have a TOP button config of going to contactList page', () => {
