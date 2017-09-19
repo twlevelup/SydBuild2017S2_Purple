@@ -40,8 +40,8 @@ describe('HomeScreenComponent component', () => {
     expect(ButtonAction.scrollUp).toHaveBeenCalled();
   });
 
-  test('it should have a BOTTOM button config of scrolling page down', () => {
+  test('it should have a BOTTOM button which will go to the mood page', () => {
     HomeScreenButtons.BOTTOM();
-    expect(ButtonAction.scrollDown).toHaveBeenCalled();
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/mood');
   });
 });

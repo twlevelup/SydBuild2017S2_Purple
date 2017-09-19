@@ -7,6 +7,7 @@ import HomeScreen from './app/pages/HomeScreen/HomeScreen';
 import CounterScreen from './app/pages/CounterScreen/CounterScreen';
 import ContactScreen from './app/pages/ContactListScreen/ContactListScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
+import MoodScreen from './app/pages/MoodScreen/MoodScreen';
 import contacts from './app/data/contacts.json';
 import WatchApp from './framework';
 
@@ -18,6 +19,7 @@ const pages = [
   { path: '/notfound', Component: NotFoundScreen },
   { path: '/notification', Component: NotificationScreen },
   { path: '/education', Component: EducationScreen },
+  { path: '/mood', Component: MoodScreen },
 ];
 
 ReactDOM.render(
