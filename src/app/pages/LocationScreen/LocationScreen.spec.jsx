@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LocationScreenComponent, LocationScreenButtons } from './LocationScreen';
+import { LocationScreenComponent } from './LocationScreen';
 import ButtonAction from '../../../framework/util/ButtonAction';
 import Time from '../../../framework/components/Time/Time';
 
 jest.mock('../../../framework/util/ButtonAction');
 
 describe('<LocationScreenComponent />', () => {
-
   let componentWrapper;
 
   beforeEach(() => {

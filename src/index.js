@@ -19,6 +19,7 @@ const pages = [
   { path: '/notfound', Component: NotFoundScreen },
   { path: '/notification', Component: NotificationScreen },
   { path: '/education', Component: EducationScreen },
+  { path: '/location', Component: LocationScreen },
 ];
 
 ReactDOM.render(
