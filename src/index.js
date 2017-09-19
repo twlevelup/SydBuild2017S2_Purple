@@ -7,6 +7,7 @@ import HomeScreen from './app/pages/HomeScreen/HomeScreen';
 import CounterScreen from './app/pages/CounterScreen/CounterScreen';
 import ContactScreen from './app/pages/ContactListScreen/ContactListScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
+import LocationScreen from './app/pages/LocationScreen/LocationScreen';
 import contacts from './app/data/contacts.json';
 import WatchApp from './framework';
 
