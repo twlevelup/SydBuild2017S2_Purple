@@ -1,15 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NewsScreenComponent, NewsScreenButtons } from './NewsScreen';
+import { NotificationScreenComponent, NotificationScreenButtons } from './NotificationScreen';
 import ButtonAction from '../../../framework/util/ButtonAction';
 
 jest.mock('../../../framework/util/ButtonAction');
 
-describe('<NewsScreenComponent />', () => {
+describe('<NotificationScreenComponent />', () => {
   let componentWrapper;
 
   beforeEach(() => {
-    componentWrapper = shallow(<NewsScreenComponent />);
+    componentWrapper = shallow(<NotificationScreenComponent />);
     jest.spyOn(ButtonAction, 'goToPage');
   });
 
@@ -17,28 +17,28 @@ describe('<NewsScreenComponent />', () => {
     expect(componentWrapper.find('#publish-date')).toHaveText('Publish date: 23/05/1823');
   });
 
-  it('should display (my first news article) by default', () => {
-    expect(componentWrapper).toIncludeText('My first news article');
+  it('should display (my first Notification article) by default', () => {
+    expect(componentWrapper).toIncludeText('My first Notification article');
   });
 
-  describe('NewsScreenButtons', () => {
+  describe('NotificationScreenButtons', () => {
     test('it should have a LEFT button config of going to Home Page', () => {
-      NewsScreenButtons.LEFT();
+      NotificationScreenButtons.LEFT();
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
 
     test('it should have a RIGHT button config of going to contactList page', () => {
-      NewsScreenButtons.RIGHT();
+      NotificationScreenButtons.RIGHT();
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
     });
 
     test('it should have a TOP button config of going to contactList page', () => {
-      NewsScreenButtons.TOP();
+      NotificationScreenButtons.TOP();
       expect(ButtonAction.scrollUp).toHaveBeenCalled();
     });
 
     test('it should have a BOTTOM button config of going to contactList page', () => {
-      NewsScreenButtons.BOTTOM();
+      NotificationScreenButtons.BOTTOM();
       expect(ButtonAction.scrollDown).toHaveBeenCalled();
     });
   });

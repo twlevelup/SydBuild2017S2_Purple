@@ -2,24 +2,24 @@ import React from 'react';
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
 import ButtonAction from '../../../framework/util/ButtonAction';
 
-export const NewsScreenComponent = () => {
+export const NotificationScreenComponent = () => {
   return (
-    <div id='news-page'>
-      <div id='news-articles-container'>
+    <div id='Notification-page'>
+      <div id='Notification-articles-container'>
         <div>
           <span id='publish-date'>Publish date: 23/05/1823</span>
-          <p>My first news article </p>
+          <p>My first Notification article </p>
         </div>
       </div>
     </div>
   );
 };
 
-export const NewsScreenButtons = {
+export const NotificationScreenButtons = {
   LEFT: () => ButtonAction.goToPage('/'),
   RIGHT: () => ButtonAction.goToPage('/contacts'),
   TOP: () => ButtonAction.scrollUp(),
   BOTTOM: () => ButtonAction.scrollDown(),
 };
 
-export default WithButtonConfigs(NewsScreenComponent, NewsScreenButtons);
+export default WithButtonConfigs(NotificationScreenComponent, NotificationScreenButtons);
