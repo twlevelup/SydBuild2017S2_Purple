@@ -25,9 +25,9 @@ describe('HomeScreenComponent component', () => {
     expect(homeScreenComponent.find('#home-page-content')).toBePresent();
   });
 
-  test('it should have a LEFT button config of going to News Page', () => {
+  test('it should have a LEFT button config of going to Notification Page', () => {
     HomeScreenButtons.LEFT();
-    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/news');
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/notification');
   });
 
   test('it should have a RIGHT button config of going to education page', () => {
