@@ -13,11 +13,11 @@ describe('HomeScreenComponent component', () => {
     jest.spyOn(ButtonAction, 'goToPage', 'scrollUp', 'scrollDown');
     homeScreenComponent = shallow(<HomeScreenComponent />);
   });
-  test('it should have Date component', () => {
+  test('it should have Time component', () => {
     expect(homeScreenComponent).toContainReact(<Time />);
   });
 
-  test('it should have Time component', () => {
+  test('it should have Date component', () => {
     expect(homeScreenComponent).toContainReact(<Date />);
   });
 
@@ -35,9 +35,9 @@ describe('HomeScreenComponent component', () => {
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/education');
   });
 
-  test('it should have a TOP button config of scrolling page up', () => {
+  test('it should have a TOP button config of going to location page', () => {
     HomeScreenButtons.TOP();
-    expect(ButtonAction.scrollUp).toHaveBeenCalled();
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/location');
   });
 
   test('it should have a BOTTOM button which will go to the mood page', () => {

@@ -1,45 +1,49 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { EducationScreenComponent, EducationScreenButtons } from './EducationScreen';
+import { LocationScreenComponent } from './LocationScreen';
 import ButtonAction from '../../../framework/util/ButtonAction';
+import Time from '../../../framework/components/Time/Time';
 
 jest.mock('../../../framework/util/ButtonAction');
 
-describe('<EducationScreenComponent />', () => {
+describe('<LocationScreenComponent />', () => {
   let componentWrapper;
 
   beforeEach(() => {
-    componentWrapper = shallow(<EducationScreenComponent />);
+    componentWrapper = shallow(<LocationScreenComponent />);
     jest.spyOn(ButtonAction, 'goToPage');
   });
 
-  it('should display the article publish date', () => {
-    expect(componentWrapper.find('#publish-date')).toHaveText('Publish date: 23/05/1823');
+  it('should have text stating that this screen sends location', () => {
+    expect(componentWrapper.find('.title')).toHaveText('Tap screen to send your location to carer');
   });
 
-  it('should display (my first education article) by default', () => {
-    expect(componentWrapper).toIncludeText('My first education article');
+  test('it should have Time  component', () => {
+    expect(componentWrapper).toContainReact(<Time />);
   });
 
-  describe('EducationScreenButtons', () => {
+  /*
+  describe('NewsScreenButtons', () => {
     test('it should have a LEFT button config of going to Home Page', () => {
-      EducationScreenButtons.LEFT();
+      NewsScreenButtons.LEFT();
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
 
     test('it should have a RIGHT button config of going to contactList page', () => {
-      EducationScreenButtons.RIGHT();
-      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/Education');
+      NewsScreenButtons.RIGHT();
+      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
     });
 
     test('it should have a TOP button config of going to contactList page', () => {
-      EducationScreenButtons.TOP();
+      NewsScreenButtons.TOP();
       expect(ButtonAction.scrollUp).toHaveBeenCalled();
     });
 
     test('it should have a BOTTOM button config of going to contactList page', () => {
-      EducationScreenButtons.BOTTOM();
+      NewsScreenButtons.BOTTOM();
       expect(ButtonAction.scrollDown).toHaveBeenCalled();
     });
+
   });
+  */
 });

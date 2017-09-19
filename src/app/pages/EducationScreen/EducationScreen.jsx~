@@ -4,7 +4,7 @@ import ButtonAction from '../../../framework/util/ButtonAction';
 
 const count = 0;
 
-const EducationString = ['My first education article', 'My second edu article', 'My third edu article'];
+const EducationString = ['my first education article', 'My second edu article', 'My third edu article'];
 
 export const EducationScreenComponent = () => {
   return (
