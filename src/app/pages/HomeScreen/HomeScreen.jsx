@@ -24,9 +24,8 @@ export const HomeScreenComponent = () => {
 };
 
 export const HomeScreenButtons = {
-    TOP: () => ButtonAction.goToPage('/location'),
-      BOTTOM: () => ButtonAction.goToPage('/mood'),
-
+  TOP: () => ButtonAction.goToPage('/location'),
+  BOTTOM: () => ButtonAction.goToPage('/mood'),
   LEFT: () => ButtonAction.goToPage('/notification'), // this will make the left button navigate to the news page
   RIGHT: () => ButtonAction.goToPage('/education'),
 

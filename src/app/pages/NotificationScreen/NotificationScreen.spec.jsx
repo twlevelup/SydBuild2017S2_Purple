@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { NotificationScreenComponent, NotificationScreenButtons } from './NotificationScreen';
 import ButtonAction from '../../../framework/util/ButtonAction';
 
+
 jest.mock('../../../framework/util/ButtonAction');
 
 describe('<NotificationScreenComponent />', () => {
