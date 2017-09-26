@@ -4,6 +4,7 @@ import { EducationScreenComponent, EducationScreenButtons } from './EducationScr
 import ButtonAction from '../../../framework/util/ButtonAction';
 
 jest.mock('../../../framework/util/ButtonAction');
+//  jest.mock(localStorage);
 
 describe('<EducationScreenComponent />', () => {
   let componentWrapper;
@@ -17,8 +18,8 @@ describe('<EducationScreenComponent />', () => {
     expect(componentWrapper.find('#publish-date')).toHaveText('Publish date: 23/05/1823');
   });
 
-  it('should display (my first education article) by default', () => {
-    expect(componentWrapper).toIncludeText('My first education article');
+  it('should display (Education screen) by default', () => {
+    expect(componentWrapper).toIncludeText('My first education');
   });
 
   describe('EducationScreenButtons', () => {
@@ -27,9 +28,9 @@ describe('<EducationScreenComponent />', () => {
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
 
-    test('it should have a RIGHT button config of going to contactList page', () => {
+    test('it should have a RIGHT button config of going to education page', () => {
       EducationScreenButtons.RIGHT();
-      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
+      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/education');
     });
 
     test('it should have a TOP button config of going to contactList page', () => {
@@ -40,6 +41,11 @@ describe('<EducationScreenComponent />', () => {
     test('it should have a BOTTOM button config of going to contactList page', () => {
       EducationScreenButtons.BOTTOM();
       expect(ButtonAction.scrollDown).toHaveBeenCalled();
+    });
+    
+    test('it should have a SCREEN button config of going to home page', () => {
+      EducationScreenButtons.SCREEN();
+      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
   });
 });
