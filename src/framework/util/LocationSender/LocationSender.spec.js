@@ -1,4 +1,4 @@
-import localStorage from 'mock-local-storage';
+import localStorage from 'mock-local-storage'; // eslint-disable-line no-unused-vars
 import sendLocation from './LocationSender';
 
 describe('SendPosition ', () => {
