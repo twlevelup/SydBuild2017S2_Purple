@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LocationScreenComponent } from './LocationScreen';
+import { LocationScreenComponent, LocationScreenButtons } from './LocationScreen';
 import ButtonAction from '../../../framework/util/ButtonAction';
 import Time from '../../../framework/components/Time/Time';
-
+// import localStorage from 'mock-local-storage';
+// global.window = {};
+// window.localStorage = global.localStorage;
 jest.mock('../../../framework/util/ButtonAction');
 
 describe('<LocationScreenComponent />', () => {
@@ -22,28 +24,10 @@ describe('<LocationScreenComponent />', () => {
     expect(componentWrapper).toContainReact(<Time />);
   });
 
-  /*
-  describe('NewsScreenButtons', () => {
-    test('it should have a LEFT button config of going to Home Page', () => {
-      NewsScreenButtons.LEFT();
+  describe('LocationScreenButtons', () => {
+    test('it should have a MIDDLE button config of going to Home Page', () => {
+      LocationScreenButtons.SCREEN();
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
-
-    test('it should have a RIGHT button config of going to contactList page', () => {
-      NewsScreenButtons.RIGHT();
-      expect(ButtonAction.goToPage).toHaveBeenCalledWith('/contacts');
-    });
-
-    test('it should have a TOP button config of going to contactList page', () => {
-      NewsScreenButtons.TOP();
-      expect(ButtonAction.scrollUp).toHaveBeenCalled();
-    });
-
-    test('it should have a BOTTOM button config of going to contactList page', () => {
-      NewsScreenButtons.BOTTOM();
-      expect(ButtonAction.scrollDown).toHaveBeenCalled();
-    });
-
   });
-  */
 });
