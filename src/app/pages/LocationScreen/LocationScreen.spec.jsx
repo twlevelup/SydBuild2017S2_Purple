@@ -30,4 +30,13 @@ describe('<LocationScreenComponent />', () => {
       expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
     });
   });
+  /*
+  describe('LocationScreenButtons', () => {
+    test('it should have a MIDDLE button config which calls sendLocation', () => {
+      const sendLocation = jest.fn();
+      LocationScreenButtons.SCREEN();
+      expect(sendLocation).toHaveBeenCalled();
+    });
+  });
+  */
 });

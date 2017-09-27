@@ -28,7 +28,7 @@ export const HomeScreenButtons = {
   BOTTOM: () => ButtonAction.goToPage('/mood'),
   LEFT: () => ButtonAction.goToPage('/notification'), // this will make the left button navigate to the news page
   RIGHT: () => ButtonAction.goToPage('/education'),
-
+  SCREEN: () => ButtonAction.doNothing(),
 };
 
 export default WithButtonConfigs(HomeScreenComponent, HomeScreenButtons);

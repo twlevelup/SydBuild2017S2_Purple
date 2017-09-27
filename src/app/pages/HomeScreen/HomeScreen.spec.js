@@ -44,4 +44,8 @@ describe('HomeScreenComponent component', () => {
     HomeScreenButtons.BOTTOM();
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/mood');
   });
+  test('the SCREEN button should do nothing', () => {
+    HomeScreenButtons.SCREEN();
+    expect(ButtonAction.doNothing).toHaveBeenCalled();
+  });
 });
