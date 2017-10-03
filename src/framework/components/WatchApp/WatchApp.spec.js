@@ -48,11 +48,7 @@ describe('WatchApp', () => {
     const result = wrappedApp.find('h1');
     expect(result).toHaveText('LevelUp Watch Edition');
   });
-  
-  test('it should display the ConfigForm', () => {
-    expect(wrappedApp.find('ConfigForm')).toBePresent();
-  });
-  
+
   test('it should display the NotificationForm', () => {
     expect(wrappedApp.find('NotificationForm')).toBeDefined();
   });
