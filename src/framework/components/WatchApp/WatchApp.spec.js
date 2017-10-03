@@ -49,6 +49,10 @@ describe('WatchApp', () => {
     expect(result).toHaveText('LevelUp Watch Edition');
   });
 
+  test('it should display the ConfigForm', () => {
+    expect(wrappedApp.find('ConfigForm')).toBeDefined();
+  });
+
   test('it should display the NotificationForm', () => {
     expect(wrappedApp.find('NotificationForm')).toBeDefined();
   });
