@@ -6,6 +6,7 @@ import EducationScreen from './app/pages/EducationScreen/EducationScreen';
 import HomeScreen from './app/pages/HomeScreen/HomeScreen';
 import CounterScreen from './app/pages/CounterScreen/CounterScreen';
 import ContactScreen from './app/pages/ContactListScreen/ContactListScreen';
+import ContactViewScreen from './app/pages/ContactViewScreen/ContactViewScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
 import MoodScreen from './app/pages/MoodScreen/MoodScreen';
 import LocationScreen from './app/pages/LocationScreen/LocationScreen';
@@ -16,6 +17,7 @@ import WatchApp from './framework';
 const pages = [
   { path: '/', Component: HomeScreen },
   { path: '/contacts', Component: ContactScreen, props: { contacts } },
+  { path: '/contact-view', Component: ContactViewScreen },
   { path: '/counter', Component: CounterScreen },
   { path: '/notfound', Component: NotFoundScreen },
   { path: '/notification', Component: NotificationScreen },
