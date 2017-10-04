@@ -50,3 +50,11 @@ describe('SendPosition ', () => {
     expect(navigator.geolocation.getCurrentPosition).toBeCalled();
   });
 });
+
+describe('SendLocation ', () => {
+  test('it should return a failing promise if no geolocation', () => {
+    navigator.geolocation = false;
+    const result = sendLocation();
+    expect(result).toEqual(undefined);
+  });
+});

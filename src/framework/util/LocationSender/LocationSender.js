@@ -15,9 +15,15 @@ const sendPosition = (position) => {
   localStorage.setItem('locationList', JSON.stringify(locations));
 };
 
-export const SendLocation = () => {
+export const SendLocation = () => { // eslint-disable-line consistent-return
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(sendPosition);
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition((coords) => {
+        sendPosition(coords);
+        resolve();
+      },
+      reject);
+    });
   }
 };
 export default SendLocation;
