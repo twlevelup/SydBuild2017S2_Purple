@@ -17,20 +17,20 @@ export class NotificationFormComponent extends React.Component {
     this.setState({
       input: e.target.value,
     });
-  }
+  };
 
   buttonConfigs = {
     OVERRIDE: () => {
       this.props.hideNotification();
       this.props.remapButtons({ OVERRIDE: false });
     },
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.pushNotification(this.state.input);
     this.props.remapButtons(this.buttonConfigs);
-  }
+  };
 
   render() {
     return (
