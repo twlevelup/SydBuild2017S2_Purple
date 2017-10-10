@@ -16,7 +16,6 @@ describe('ContactListScreen component', () => {
     };
   });
 
-
   it('should have a title', () => {
     const componentWrapper = shallow(<ContactListComponent { ...defaultProps } />);
     expect(componentWrapper.find('.title')).toBePresent();

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Home",
+    "latitude": "-33.313000",
+    "longitude": "151.200000"
+  },
+  {
+    "name": "Work",
+    "latitude": "-33.313400",
+    "longitude": "151.410000"
+  },
+  {
+    "name": "Doctor",
+    "latitude": "+61 025 3625 3265",
+    "longitude": "105 test street"
+  }
+]

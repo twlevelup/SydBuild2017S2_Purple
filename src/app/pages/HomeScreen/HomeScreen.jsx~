@@ -27,8 +27,13 @@ export const HomeScreenComponent = () => {
 
 export const HomeScreenButtons = {
   TOP: () => ButtonAction.goToPage('/location'),
+<<<<<<< cb5ecaf5a9ba3b92a80d60606686c21aa65ff9fb
+  BOTTOM: () => ButtonAction.goToPage('/mood'),
+  LEFT: () => ButtonAction.goToPage('/notification'),
+=======
   BOTTOM: () => ButtonAction.goToPage('/nav'),
   LEFT: () => ButtonAction.goToPage('/notification'), // this will make the left button navigate to the news page
+>>>>>>> [NavScreen][Damian/Jae-Hee] Scroll list working with tests
   RIGHT: () => ButtonAction.goToPage('/education'),
   SCREEN: () => ButtonAction.doNothing(),
 };
