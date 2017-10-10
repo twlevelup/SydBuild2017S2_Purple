@@ -1,4 +1,5 @@
 import React from 'react';
+import CarerLocation from '../CarerLocation/CarerLocation';
 
 export default () => {
   const hours = [];
@@ -37,6 +38,8 @@ export default () => {
         <input type='range' defaultValue='8' min='2' max='24' id='font-size' onChange={ handler } />
         <input type='submit' value='resize' className='submit-btn' onChange={ handler } />
       </form>
+      <CarerLocation />
+
     </div>
   );
 };
