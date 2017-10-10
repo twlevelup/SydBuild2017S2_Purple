@@ -23,4 +23,38 @@ describe('ConfigForm', () => {
     const result = wrappedApp.find('h2');
     expect(result).toHaveText('ConfigForm');
   });
+
+  test('it should display time dropdown menu', () => {
+    expect(wrappedApp.find('#dropdown-menu')).toBeDefined();
+  });
+
+  test('it should display time hours', () => {
+    expect(wrappedApp.find('#hours')).toBeDefined();
+  });
+
+  test('it should display time minutes', () => {
+    expect(wrappedApp.find('#minutes')).toBeDefined();
+  });
+
+  test('it should have a submit notification button', () => {
+    expect(wrappedApp.find('.submit-btn')).toBePresent();
+  });
+
+  test('it should display color picker title', () => {
+    const result = wrappedApp.find('h4').at(0);
+    expect(result).toHaveText('color picker');
+  });
+  
+  test('it should display font size title', () => {
+    const result = wrappedApp.find('h4').at(1);
+    expect(result).toHaveText('font size');
+  });
+  
+  test('it should display color picker', () => {
+    expect(wrappedApp.find('input[type="color"]')).toBeDefined();
+  });
+  
+  test('it should display font size picker', () => {
+    expect(wrappedApp.find('input[type="range"]')).toBeDefined();
+  });
 });
