@@ -32,7 +32,7 @@ export class LocationScreenComponent extends React.Component {
           activeText: 'Location sent to carer!',
         });
       }, this.setState({
-        activeText: 'Last Location send failed',
+        activeText: 'Last Location send not received yet',
       }));
       // document.getElementsByClassName('title').innerHTML
     },
