@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CarerLocation from '../CarerLocation/CarerLocation';
 
-export default () => {
+const ConfigForm = ({ handleSubmit }) => {
   const hours = [];
   const minutes = [];
   for (let i = 0; i < 25; i++) {
@@ -16,7 +17,7 @@ export default () => {
   return (
     <div>
       <h2>ConfigForm</h2>
-      <form id='dropdown-menu' onSubmit={ event => this.handleSubmit(event) }>
+      <form id='dropdown-menu' onSubmit={ event => handleSubmit(event) }>
         <select id='hours'>
           { hours }
         </select>
@@ -43,3 +44,12 @@ export default () => {
     </div>
   );
 };
+
+ConfigForm.propTypes = {
+  handleSubmit: PropTypes.func,
+};
+ConfigForm.defaultProps = {
+  handleSubmit: () => {},
+};
+
+export default ConfigForm;

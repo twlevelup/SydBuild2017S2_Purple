@@ -26,12 +26,14 @@ class CarerLocation extends React.Component {
         <div className='locationDisplay'>
           <p className='latitudeDisplay'>latitude = {this.state.location.lat}</p>
           <p className='longitudeDisplay'>longitude = {this.state.location.lng}</p>
-          <p className='timeDisplay'>time = {(new Date(this.state.time)).toString()}</p>
+          <p className='timeDisplay'>time sent = {(new Date(this.state.time)).toString()}</p>
         </div>
       );
     }
     return (
       <div id='carer-location-screen' className='carer-location-screen'>
+        <p className='title'>carer information about user:</p>
+
         {locationText}
       </div>
     );
