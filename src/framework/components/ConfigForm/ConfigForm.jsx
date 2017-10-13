@@ -14,6 +14,12 @@ const ConfigForm = ({ handleSubmit }) => {
   const handler = () => {
 
   };
+  const onnRangeChange = () => {
+    console.log("!!!!!!!!!!!!",document.getElementById('my-range'))
+    const value = document.getElementById('my-range').value;
+    document.getElementById('size-info').innerHTML = value;
+  };
+
   return (
     <div>
       <h2>ConfigForm</h2>
@@ -30,13 +36,13 @@ const ConfigForm = ({ handleSubmit }) => {
           <option>monthly</option>
           <option>annually</option>
         </select>
-        <input type='submit' value='send time' className='submit-btn' onChange={ handler } />
+        <input type='submit' value='set reminder' className='submit-btn' onChange={ handler } />
         <h4>color picker</h4>
         <input type='color' value='#ff0000' onChange={ handler } />
         <input type='submit' value='change color' onChange={ handler } className='submit-btn' />
         <h4>font size</h4>
         <span id='size-info'>8</span>
-        <input type='range' defaultValue='8' min='2' max='24' id='font-size' onChange={ handler } />
+        <input type='range' defaultValue='8' min='2' max='24' id='my-range' onChange={ onnRangeChange } />
         <input type='submit' value='resize' className='submit-btn' onChange={ handler } />
       </form>
       <CarerLocation />
