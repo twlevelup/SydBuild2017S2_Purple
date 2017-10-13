@@ -19,6 +19,7 @@ const ScreenLayout = ({ children, className, onClick }) => {
     <div>
       <div id='watch-screen' className={ className } >
         <div
+          className='button-wrapper'
           role='button'
           tabIndex={ 0 }
           onClick={ onClick }

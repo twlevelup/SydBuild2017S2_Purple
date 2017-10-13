@@ -10,6 +10,7 @@ import ContactViewScreen from './app/pages/ContactViewScreen/ContactViewScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
 import NavScreen from './app/pages/NavScreen/NavScreen';
 import LocationScreen from './app/pages/LocationScreen/LocationScreen';
+import MoodScreen from './app/pages/MoodScreen/MoodScreen';
 import notifications from './app/data/notifications.json';
 import contacts from './app/data/contacts.json';
 import locations from './app/data/locations.json';
@@ -26,6 +27,7 @@ const pages = [
   { path: '/education', Component: EducationScreen },
   { path: '/nav', Component: NavScreen, props: { locations } },
   { path: '/location', Component: LocationScreen },
+  { path: '/mood', Component: MoodScreen },
 ];
 
 ReactDOM.render(

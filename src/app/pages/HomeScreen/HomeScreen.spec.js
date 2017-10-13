@@ -29,10 +29,9 @@ describe('HomeScreenComponent component', () => {
     HomeScreenButtons.LEFT();
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/notification');
   });
-
-  test('it should have a RIGHT button config of going to education page', () => {
+  test('it should have a RIGHT button config of going to mood page', () => {
     HomeScreenButtons.RIGHT();
-    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/education');
+    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/mood');
   });
 
   test('it should have a TOP button config of going to location page', () => {
