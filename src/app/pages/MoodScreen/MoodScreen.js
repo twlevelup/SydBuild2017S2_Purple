@@ -1,27 +1,22 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import ButtonAction from '../../../framework/util/ButtonAction';
+import RowSplitScreen from '../../../framework/components/RowSplitScreen/RowSplitScreen';
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
 import Arrow from './Arrow';
 import './MoodScreen.css';
 
 export const MoodScreenComponent = () => {
+  const top = (<div><Arrow direction='up' />
+    <div className='upText'>
+              How are you feeling?
+              </div></div>);
+  const bottom = (<div><div className='downText'>
+              List of responses
+              </div>
+    <Arrow direction='down' /></div>);
   return (
-    <div className='screen-wrapper'>
-      <br />
-      <Arrow direction='up' />
-      <div className='screen-half'>
-        <div className='upText'>
-          How are you feeling?
-        </div>
-      </div>
-      <div className='screen-half'>
-        <div className='downText'>
-          List of responses
-        </div>
-        <Arrow direction='down' />
-      </div>
-    </div>
+    <RowSplitScreen top={ top } bottom={ bottom } />
   );
 };
 

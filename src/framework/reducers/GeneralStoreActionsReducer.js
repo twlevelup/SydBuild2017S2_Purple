@@ -11,10 +11,10 @@ const update = (state, action) => {
 
 const GeneralActionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ACTION_TYPES.UPDATE_STORE:
-      return update(state, action);
-    default:
-      return state;
+  case ACTION_TYPES.UPDATE_STORE:
+    return update(state, action);
+  default:
+    return state;
   }
 };
 
