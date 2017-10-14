@@ -63,12 +63,4 @@ describe('ConfigForm', () => {
   test('it should display font size picker', () => {
     expect(wrappedApp.find('input[type="range"]')).toBeDefined();
   });
-  
-  test('it should change font size value to 10', () => {
-    document.getElementById = (id) => ({value: '10'});
-    wrappedApp.find('#my-range').simulate('change', { target: { value: '10' }});
-
-    expect(wrappedApp.find('#size-info')).toHaveValue('10');
-  });
-  
 });
