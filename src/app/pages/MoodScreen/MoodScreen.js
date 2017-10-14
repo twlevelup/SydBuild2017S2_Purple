@@ -22,10 +22,10 @@ export const MoodScreenComponent = () => {
 
 
 export const MoodViewScreenButtons = {
-  // LEFT: () => ButtonAction.goToPage({ pathname: '/counter', state: { number: 5 } }),
-  // RIGHT: () => ButtonAction.goToPage('/contacts'),
+  LEFT: () => ButtonAction.goToPage('/'),
+  RIGHT: () => ButtonAction.doNothing(),
   TOP: () => ButtonAction.goToPage('/smiley'),
-  // BOTTOM: () => ButtonAction.scrollDown(),
+  BOTTOM: () => ButtonAction.scrollDown(),
   SCREEN: () => ButtonAction.goToPage('/'),
 };
 
