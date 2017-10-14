@@ -89,7 +89,7 @@ ConfigForm.propTypes = {
 };
 ConfigForm.defaultProps = {
   handleSubmit: () => {},
-  appStore: { generalStore: { notification: { } }},
+  appStore: { generalStore: { notification: { } } },
 };
 
 export default ConfigForm;

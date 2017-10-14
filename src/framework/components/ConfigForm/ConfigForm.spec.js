@@ -9,7 +9,7 @@ const store = configureMockStore()({});
 const setStore = (newStore) => {
   return mount(
     <Provider store={ newStore }>
-      <ConfigForm handleSubmit={ mockSubmit } appStore={{}} updateStore={jest.fn()}/>
+      <ConfigForm handleSubmit={ mockSubmit } appStore={ {} } updateStore={ jest.fn() } />
     </Provider>
   );
 };
