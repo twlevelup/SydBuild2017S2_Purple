@@ -7,6 +7,7 @@ import browserHistory from './Router/BrowserHistory';
 import WatchApp from './components/WatchApp/WatchApp';
 import ButtonActionsReducer from './reducers/ButtonsRemapReducer';
 import NotificationReducer from './reducers/NotificationReducer';
+import GeneralActionsReducer from './reducers/GeneralStoreActionsReducer';
 
 const middleware = routerMiddleware(browserHistory);
 
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   ButtonActionsReducer,
   router: routerReducer,
   NotificationReducer,
+  generalStore: GeneralActionsReducer,
 });
 
 // eslint-disable-next-line no-underscore-dangle

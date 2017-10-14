@@ -40,7 +40,6 @@ const ConfigForm = ({ handleSubmit }) => {
         <input type='submit' value='resize' className='submit-btn' onChange={ handler } />
       </form>
       <CarerLocation />
-
     </div>
   );
 };
