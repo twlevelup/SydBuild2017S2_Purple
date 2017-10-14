@@ -1,5 +1,6 @@
 import React from 'react';
 import getLocation from '../../util/LocationGetter/LocationGetter';
+import { getMood } from '../../util/MoodGetter/MoodGetter';
 
 class CarerLocation extends React.Component {
   constructor(props) {
@@ -7,14 +8,17 @@ class CarerLocation extends React.Component {
     this.state = {
       location: null,
       time: null,
+      mood: 'undecided',
     };
   }
   componentDidMount() {
     setInterval(() => {
       const data = getLocation();
+      const moodData = getMood();
       this.setState({
         location: data.location,
         time: data.time,
+        mood: moodData.mood,
       });
     }, 3000);
   }
@@ -27,6 +31,7 @@ class CarerLocation extends React.Component {
           <p className='latitudeDisplay'>latitude = {this.state.location.lat}</p>
           <p className='longitudeDisplay'>longitude = {this.state.location.lng}</p>
           <p className='timeDisplay'>time sent = {(new Date(this.state.time)).toString()}</p>
+          <p className='moodDisplay'>users last mood = {this.state.mood}</p>
         </div>
       );
     }

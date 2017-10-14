@@ -3,6 +3,7 @@ import React from 'react';
 import ButtonAction from '../../../framework/util/ButtonAction';
 import RowSplitScreen from '../../../framework/components/RowSplitScreen/RowSplitScreen';
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
+import { sendMood } from '../../../framework/util/MoodSender/MoodSender';
 
 export const SmileyScreenComponent = () => {
   const top = (<div>
@@ -21,8 +22,8 @@ export const SmileyScreenComponent = () => {
 export const SmileyViewScreenButtons = {
   // LEFT: () => ButtonAction.goToPage({ pathname: '/counter', state: { number: 5 } }),
   // RIGHT: () => ButtonAction.goToPage('/contacts'),
-  //  TOP: () => ButtonAction.scrollUp(),
-  // BOTTOM: () => ButtonAction.scrollDown(),
+  TOP: () => sendMood('happy'),
+  BOTTOM: () => sendMood('sad'),
   SCREEN: () => ButtonAction.goToPage('/'),
 };
 
