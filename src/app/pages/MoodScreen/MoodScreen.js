@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import ButtonAction from '../../../framework/util/ButtonAction';
+import ButtonAction from '../../../framework/util/ButtonAction';
 import RowSplitScreen from '../../../framework/components/RowSplitScreen/RowSplitScreen';
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
 import Arrow from './Arrow';
@@ -22,10 +22,11 @@ export const MoodScreenComponent = () => {
 
 
 export const MoodViewScreenButtons = {
-  /* LEFT: () => ButtonAction.goToPage({ pathname: '/counter', state: { number: 5 } }),
-  RIGHT: () => ButtonAction.goToPage('/contacts'),
-  TOP: () => ButtonAction.scrollUp(),
-  BOTTOM: () => ButtonAction.scrollDown(), */
+  // LEFT: () => ButtonAction.goToPage({ pathname: '/counter', state: { number: 5 } }),
+  // RIGHT: () => ButtonAction.goToPage('/contacts'),
+  //  TOP: () => ButtonAction.scrollUp(),
+  // BOTTOM: () => ButtonAction.scrollDown(),
+  SCREEN: () => ButtonAction.goToPage('/'),
 };
 
 
