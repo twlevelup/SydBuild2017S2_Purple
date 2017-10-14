@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ButtonAction from '../../../framework/util/ButtonAction';
-import { MoodScreenComponent, MoodViewScreenButtons } from './MoodScreen';
+import { SmileyScreenComponent, SmileyViewScreenButtons } from './SmileyScreen';
 
 jest.mock('../../../framework/util/ButtonAction');
 
@@ -9,21 +9,17 @@ describe('MoodScreen ', () => {
   let componentWrapper;
   beforeEach(() => {
     componentWrapper = mount(
-      <MoodScreenComponent />
+      <SmileyScreenComponent />
     );
   });
   it('displays text what is your mood', () => {
-    expect(componentWrapper.find('.upText')).toHaveText('How are you feeling?');
+    expect(componentWrapper.find('.upText')).toHaveLength(1);
   });
   it('displays text list of responses', () => {
-    expect(componentWrapper.find('.downText')).toHaveText('List of responses');
+    expect(componentWrapper.find('.downText')).toHaveLength(1);
   });
   test('it should have a MIDDLE button config of going to home page', () => {
-    MoodViewScreenButtons.SCREEN();
+    SmileyViewScreenButtons.SCREEN();
     expect(ButtonAction.goToPage).toHaveBeenCalledWith('/');
-  });
-  test('it should have a UP button config of going to smiley screen', () => {
-    MoodViewScreenButtons.TOP();
-    expect(ButtonAction.goToPage).toHaveBeenCalledWith('/smiley');
   });
 });

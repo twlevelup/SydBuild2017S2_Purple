@@ -12,6 +12,7 @@ import NavScreen from './app/pages/NavScreen/NavScreen';
 import LocationScreen from './app/pages/LocationScreen/LocationScreen';
 import MoodScreen from './app/pages/MoodScreen/MoodScreen';
 import MapScreen from './app/pages/MapScreen/MapScreen';
+import SmileyScreen from './app/pages/SmileyScreen/SmileyScreen';
 import notifications from './app/data/notifications.json';
 import contacts from './app/data/contacts.json';
 import locations from './app/data/locations.json';
@@ -30,6 +31,7 @@ const pages = [
   { path: '/location', Component: LocationScreen },
   { path: '/mood', Component: MoodScreen },
   { path: '/map', Component: MapScreen },
+  { path: '/smiley', Component: SmileyScreen },
 ];
 
 ReactDOM.render(

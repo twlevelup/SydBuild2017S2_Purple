@@ -3,31 +3,28 @@ import React from 'react';
 import ButtonAction from '../../../framework/util/ButtonAction';
 import RowSplitScreen from '../../../framework/components/RowSplitScreen/RowSplitScreen';
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
-import Arrow from './Arrow';
-import './MoodScreen.css';
 
-export const MoodScreenComponent = () => {
-  const top = (<div><Arrow direction='up' />
+export const SmileyScreenComponent = () => {
+  const top = (<div>
     <div className='upText'>
-              How are you feeling?
-              </div></div>);
+      {'\u263a'} Press up if your happy
+    </div></div>);
   const bottom = (<div><div className='downText'>
-              List of responses
-              </div>
-    <Arrow direction='down' /></div>);
+    Press down if your sad
+  </div></div>);
   return (
     <RowSplitScreen top={ top } bottom={ bottom } />
   );
 };
 
 
-export const MoodViewScreenButtons = {
+export const SmileyViewScreenButtons = {
   // LEFT: () => ButtonAction.goToPage({ pathname: '/counter', state: { number: 5 } }),
   // RIGHT: () => ButtonAction.goToPage('/contacts'),
-  TOP: () => ButtonAction.goToPage('/smiley'),
+  //  TOP: () => ButtonAction.scrollUp(),
   // BOTTOM: () => ButtonAction.scrollDown(),
   SCREEN: () => ButtonAction.goToPage('/'),
 };
 
 
-export default WithButtonConfigs(MoodScreenComponent, MoodViewScreenButtons);
+export default WithButtonConfigs(SmileyScreenComponent, SmileyViewScreenButtons);
