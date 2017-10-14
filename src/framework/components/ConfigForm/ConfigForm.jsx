@@ -22,29 +22,15 @@ const ConfigForm = ({ updateStore }) => {
     const color = document.getElementById('color-picker').value;
     localStorage.setItem('color-picker', color);
   };
-  // const onReminderSubmit = () => {
-  //   const hour = document.getElementById('hour');
-  //   const minute = document.getElementById('minute');
-  //   const date = document.getElementById('starting-date').value;
-  //   const frequency = document.getElementById('frequency');
-  //   const selectedFrequency = frequency.options[frequency.selectedIndex].text;
-  //   localStorage.setItem('hour', hour);
-  //   localStorage.setItem('minute', time);
-  //   localStorage.setItem('starting-date', date);
-  //   localStorage.setItem('frequency', selectedFrequency);
-  // };
 
   const onFormSumbit = () => {
     const notification = {};
 
-    // const hour = document.getElementById('hour');
-    // const minute = document.getElementById('minute');
     const date = document.getElementById('starting-date').value.split('-');
     const frequency = document.getElementById('frequency');
     const selectedFrequency = frequency.options[frequency.selectedIndex].text;
     const color = document.getElementById('color-picker').value;
     const range = document.getElementById('my-range').value;
-    // console.log('time: ', document.getElementById('time').value);
     const dateTime = {
       year: date.length ? Number(date[0]) : 2017,
       month: date.length ? Number(date[1] - 1) : 10,
@@ -63,25 +49,27 @@ const ConfigForm = ({ updateStore }) => {
     <div>
       <h2>ConfigForm</h2>
       <form id='dropdown-menu'>
-        <select id='hour'>
-          {hours}
-        </select>
-        <select id='minute'>
-          {minutes}
-        </select>
-        <input type='date' id='starting-date' />
-        <select id='frequency'>
-          <option>daily</option>
-          <option>weekly</option>
-          <option>monthly</option>
-          <option>annually</option>
-        </select>
-        <input type='button' value='set reminder' className='submit-btn' onClick={ () => {} } />
         <h4>color picker</h4>
         <input type='color' defaultValue='#ff0000' id='color-picker' onChange={ onColorChange } />
         <h4>font size</h4>
         <span id='size-info'>8</span>
         <input type='range' defaultValue='8' min='2' max='24' id='my-range' onChange={ onRangeChange } />
+        <div style={ { marginTop: '10px' } }>
+          <select id='hour'>
+            {hours}
+          </select>
+          <select id='minute'>
+            {minutes}
+          </select>
+          <input type='date' id='starting-date' />
+          <select id='frequency'>
+            <option>daily</option>
+            <option>weekly</option>
+            <option>monthly</option>
+            <option>annually</option>
+          </select>
+          <input type='button' value='set reminder' className='submit-btn' onClick={ () => {} } />
+        </div>
         <div style={ { marginTop: '10px' } }>
           <input type='button' value='Save Configuration' className='submit-btn' onClick={ onFormSumbit } />
         </div>
@@ -94,5 +82,6 @@ const ConfigForm = ({ updateStore }) => {
 ConfigForm.propTypes = {
   updateStore: PropTypes.func.isRequired,
 };
+
 
 export default ConfigForm;
