@@ -5,11 +5,11 @@ import CarerLocation from '../CarerLocation/CarerLocation';
 const ConfigForm = ({ appStore, updateStore }) => {
   const hours = [];
   const minutes = [];
-  for (let i = 0; i < 25; i++) {
-    hours.push(<option className='rows' key={ i }>{ i }</option>);
+  for (let i = 0; i < 24; i++) {
+    hours.push(<option className='rows' value={ i } key={ i }>{ i }</option>);
   }
-  for (let i = 0; i < 61; i++) {
-    minutes.push(<option className='rows' key={ i }>{ i }</option>);
+  for (let i = 0; i < 60; i++) {
+    minutes.push(<option className='rows' value={ i } key={ i }>{ i }</option>);
   }
 
   const onRangeChange = () => {
@@ -22,34 +22,40 @@ const ConfigForm = ({ appStore, updateStore }) => {
     const color = document.getElementById('color-picker').value;
     localStorage.setItem('color-picker', color);
   };
-  const onReminderSubmit = () => {
-    const time = document.getElementById('time').value;
-    const date = document.getElementById('starting-date').value;
-    const frequency = document.getElementById('frequency');
-    const selectedFrequency = frequency.options[frequency.selectedIndex].text;
-    localStorage.setItem('time', time);
-    localStorage.setItem('starting-date', date);
-    localStorage.setItem('frequency', selectedFrequency);
-  };
+  // const onReminderSubmit = () => {
+  //   const hour = document.getElementById('hour');
+  //   const minute = document.getElementById('minute');
+  //   const date = document.getElementById('starting-date').value;
+  //   const frequency = document.getElementById('frequency');
+  //   const selectedFrequency = frequency.options[frequency.selectedIndex].text;
+  //   localStorage.setItem('hour', hour);
+  //   localStorage.setItem('minute', time);
+  //   localStorage.setItem('starting-date', date);
+  //   localStorage.setItem('frequency', selectedFrequency);
+  // };
 
   const onFormSumbit = () => {
     const notification = {};
 
-    const time = document.getElementById('time').value;
-    const date = document.getElementById('starting-date').value;
+    // const hour = document.getElementById('hour');
+    // const minute = document.getElementById('minute');
+    const date = document.getElementById('starting-date').value.split('-');
     const frequency = document.getElementById('frequency');
     const selectedFrequency = frequency.options[frequency.selectedIndex].text;
     const color = document.getElementById('color-picker').value;
     const range = document.getElementById('my-range').value;
-    notification.dateTime = {};
-    notification.dateTime.year = date;
-    notification.dateTime.month = date;
-    notification.dateTime.day = date;
-    notification.dateTime.hour = date;
-    notification.dateTime.minute = time;
+    // console.log('time: ', document.getElementById('time').value);
+    const dateTime = {
+      year: date[0],
+      month: date[1] - 1,
+      day: date[2],
+      hour: document.getElementById('hour').value,
+      minute: document.getElementById('minute').value,
+    };
+    notification.dateTime = dateTime;
     notification.frequency = selectedFrequency;
     notification.color = color;
-    notification.range = range;
+    notification.fontSize = range;
     updateStore('notification', notification);
   };
 
@@ -58,7 +64,12 @@ const ConfigForm = ({ appStore, updateStore }) => {
       <h2>ConfigForm</h2>
       <div> { JSON.stringify(appStore) }</div>
       <form id='dropdown-menu'>
-        <input type='time' id='time' />
+        <select id='hour'>
+          {hours}
+        </select>
+        <select id='minute'>
+          {minutes}
+        </select>
         <input type='date' id='starting-date' />
         <select id='frequency'>
           <option>daily</option>
@@ -66,13 +77,13 @@ const ConfigForm = ({ appStore, updateStore }) => {
           <option>monthly</option>
           <option>annually</option>
         </select>
-        <input type='button' value='set reminder' className='submit-btn' onClick={ onReminderSubmit } />
+        <input type='button' value='set reminder' className='submit-btn' onClick={ () => {} } />
         <h4>color picker</h4>
         <input type='color' defaultValue='#ff0000' id='color-picker' onChange={ onColorChange } />
         <h4>font size</h4>
         <span id='size-info'>8</span>
         <input type='range' defaultValue='8' min='2' max='24' id='my-range' onChange={ onRangeChange } />
-        <div>
+        <div style={ { marginTop: '10px' } }>
           <input type='button' value='Save Configuration' className='submit-btn' onClick={ onFormSumbit } />
         </div>
       </form>
