@@ -11,9 +11,7 @@ const ConfigForm = ({ appStore, updateStore }) => {
   for (let i = 0; i < 61; i++) {
     minutes.push(<option className='rows' key={ i }>{ i }</option>);
   }
-  const handler = () => {
 
-  };
   const onRangeChange = () => {
     const value = document.getElementById('my-range').value;
     document.getElementById('size-info').innerHTML = value;
@@ -71,12 +69,12 @@ const ConfigForm = ({ appStore, updateStore }) => {
         <input type='button' value='set reminder' className='submit-btn' onClick={ onReminderSubmit } />
         <h4>color picker</h4>
         <input type='color' defaultValue='#ff0000' id='color-picker' onChange={ onColorChange } />
-        <input type='button' value='change color' onChange={ handler } className='submit-btn' />
         <h4>font size</h4>
         <span id='size-info'>8</span>
         <input type='range' defaultValue='8' min='2' max='24' id='my-range' onChange={ onRangeChange } />
-        <input type='button' value='resize' className='submit-btn' onClick={ handler } />
-        <input type='button' value='Save Configuration' className='submit-btn' onClick={ onFormSumbit } />
+        <div>
+          <input type='button' value='Save Configuration' className='submit-btn' onClick={ onFormSumbit } />
+        </div>
       </form>
       <CarerLocation />
     </div>
@@ -88,7 +86,6 @@ ConfigForm.propTypes = {
   updateStore: PropTypes.func.isRequired,
 };
 ConfigForm.defaultProps = {
-  handleSubmit: () => {},
   appStore: { generalStore: { notification: { } } },
 };
 
