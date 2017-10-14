@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { GeneralContainer } from './GeneralContainer';
 import ConfigForm from '../components/ConfigForm/ConfigForm';
 
-const state = { config: { color: '#000000' } };
+const state = { config: { color: '#000000' }, generalStore: { notification: { } } };
 
 describe('GeneralContainer', () => {
   const updateStore = jest.fn();

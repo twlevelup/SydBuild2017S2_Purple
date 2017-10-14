@@ -9,7 +9,7 @@ const store = configureMockStore()({});
 const setStore = (newStore) => {
   return mount(
     <Provider store={ newStore }>
-      <ConfigForm handleSubmit={ mockSubmit } />
+      <ConfigForm handleSubmit={ mockSubmit } appStore={{}} updateStore={jest.fn()}/>
     </Provider>
   );
 };
@@ -27,11 +27,6 @@ describe('ConfigForm', () => {
 
   test('it should display time dropdown menu', () => {
     expect(wrappedApp.find('#dropdown-menu')).toBeDefined();
-  });
-  test('clicking submit button should call this.onSubmit', () => {
-    const dropdown = wrappedApp.find('#dropdown-menu');
-    dropdown.simulate('submit');
-    expect(mockSubmit).toHaveBeenCalledTimes(1);
   });
 
   test('it should display time hours', () => {

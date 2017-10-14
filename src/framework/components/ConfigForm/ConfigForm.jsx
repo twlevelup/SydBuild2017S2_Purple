@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CarerLocation from '../CarerLocation/CarerLocation';
 
-const ConfigForm = ({ handleSubmit }) => {
+const ConfigForm = ({ appStore, updateStore }) => {
   const hours = [];
   const minutes = [];
   for (let i = 0; i < 25; i++) {
@@ -34,11 +34,32 @@ const ConfigForm = ({ handleSubmit }) => {
     localStorage.setItem('frequency', selectedFrequency);
   };
 
+  const onFormSumbit = () => {
+    const notification = {};
+
+    const time = document.getElementById('time').value;
+    const date = document.getElementById('starting-date').value;
+    const frequency = document.getElementById('frequency');
+    const selectedFrequency = frequency.options[frequency.selectedIndex].text;
+    const color = document.getElementById('color-picker').value;
+    const range = document.getElementById('my-range').value;
+    notification.dateTime = {};
+    notification.dateTime.year = date;
+    notification.dateTime.month = date;
+    notification.dateTime.day = date;
+    notification.dateTime.hour = date;
+    notification.dateTime.minute = time;
+    notification.frequency = selectedFrequency;
+    notification.color = color;
+    notification.range = range;
+    updateStore('notification', notification);
+  };
 
   return (
     <div>
       <h2>ConfigForm</h2>
-      <form id='dropdown-menu' onSubmit={ event => handleSubmit(event) }>
+      <div> { JSON.stringify(appStore) }</div>
+      <form id='dropdown-menu'>
         <input type='time' id='time' />
         <input type='date' id='starting-date' />
         <select id='frequency'>
@@ -50,11 +71,12 @@ const ConfigForm = ({ handleSubmit }) => {
         <input type='button' value='set reminder' className='submit-btn' onClick={ onReminderSubmit } />
         <h4>color picker</h4>
         <input type='color' defaultValue='#ff0000' id='color-picker' onChange={ onColorChange } />
-        <input type='submit' value='change color' onChange={ handler } className='submit-btn' />
+        <input type='button' value='change color' onChange={ handler } className='submit-btn' />
         <h4>font size</h4>
         <span id='size-info'>8</span>
         <input type='range' defaultValue='8' min='2' max='24' id='my-range' onChange={ onRangeChange } />
-        <input type='submit' value='resize' className='submit-btn' onChange={ handler } />
+        <input type='button' value='resize' className='submit-btn' onClick={ handler } />
+        <input type='button' value='Save Configuration' className='submit-btn' onClick={ onFormSumbit } />
       </form>
       <CarerLocation />
     </div>
@@ -62,10 +84,12 @@ const ConfigForm = ({ handleSubmit }) => {
 };
 
 ConfigForm.propTypes = {
-  handleSubmit: PropTypes.func,
+  appStore: PropTypes.shape().isRequired,
+  updateStore: PropTypes.func.isRequired,
 };
 ConfigForm.defaultProps = {
   handleSubmit: () => {},
+  appStore: { generalStore: { notification: { } }},
 };
 
 export default ConfigForm;
