@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ArrowComponent = ({ direction = 'up' }) => {
+const ArrowComponent = ({ direction }) => {
   return (
     <div className='arrow'>
       {direction === 'up' ? '\u25b2' : '\u25bc'}
