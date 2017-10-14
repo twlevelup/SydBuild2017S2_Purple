@@ -5,7 +5,7 @@ import ButtonAction from '../../../framework/util/ButtonAction';
 
 jest.mock('../../../framework/util/ButtonAction');
 
-fdescribe('NavScreen component', () => {
+describe('NavScreen component', () => {
   let defaultProps;
   beforeEach(() => {
     jest.resetAllMocks();
@@ -43,9 +43,11 @@ fdescribe('NavScreen component', () => {
       expect(ButtonAction.goToPage).toHaveBeenCalled();
     });
 
-    test('it should have a SCREEN button to do nothing', () => {
+    test('it should have a SCREEN button to go to map screen', () => {
       NavScreenButtons(defaultProps).SCREEN();
-      expect(ButtonAction.doNothing).toHaveBeenCalled();
+      expect(ButtonAction.goToPage).toHaveBeenCalledWith(
+        { 'pathname': '/map', 'state': { 'location': { 'name': 'Home' } } }
+      );
     });
   });
 

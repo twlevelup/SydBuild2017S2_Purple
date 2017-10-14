@@ -37,7 +37,10 @@ export const NavScreenButtons = ({ locations, selectedIndex = 0 }) => ({
   },
   LEFT: () => ButtonAction.goToPage('/'),
   RIGHT: () => ButtonAction.goToPage('/'),
-  SCREEN: () => ButtonAction.doNothing(),
+  SCREEN: () => ButtonAction.goToPage({
+    pathname: '/map',
+    state: { location: locations[selectedIndex] },
+  }),
 });
 
 NavScreenComponent.propTypes = {

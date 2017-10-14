@@ -10,6 +10,12 @@ import ContactViewScreen from './app/pages/ContactViewScreen/ContactViewScreen';
 import NotFoundScreen from './app/pages/NotFoundScreen/NotFoundScreen';
 import NavScreen from './app/pages/NavScreen/NavScreen';
 import LocationScreen from './app/pages/LocationScreen/LocationScreen';
+<<<<<<< dc40949625aaf714f32c8536c265c15961a4c3d9
+import MoodScreen from './app/pages/MoodScreen/MoodScreen';
+=======
+import MapScreen from './app/pages/MapScreen/MapScreen';
+>>>>>>> [MapScreen][Damian Jae] Complete flow now working
+import notifications from './app/data/notifications.json';
 import contacts from './app/data/contacts.json';
 import locations from './app/data/locations.json';
 import WatchApp from './framework';
@@ -21,20 +27,14 @@ const pages = [
   { path: '/contact-view', Component: ContactViewScreen },
   { path: '/counter', Component: CounterScreen },
   { path: '/notfound', Component: NotFoundScreen },
-  { path: '/notification', Component: NotificationScreen },
+  { path: '/notification', Component: NotificationScreen, props: { notifications } },
   { path: '/education', Component: EducationScreen },
   { path: '/nav', Component: NavScreen, props: { locations } },
   { path: '/location', Component: LocationScreen },
+  { path: '/mood', Component: MoodScreen },
+  { path: '/map', Component: MapScreen },
 ];
 
 ReactDOM.render(
   <WatchApp pages={ pages } />,
   document.getElementById('root'));
-  
-  function something() {
-}
-
-const somethingElse = () => {
-    return 'hello';
-};
-const somethingsomethingElse = () => 'hgello';

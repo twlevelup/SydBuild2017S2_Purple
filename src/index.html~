@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>LevelUp Watch Edition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"></script>
 </head>
 <body>
 <div id="root"></div>

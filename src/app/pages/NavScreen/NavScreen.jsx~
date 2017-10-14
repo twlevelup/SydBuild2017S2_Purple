@@ -30,14 +30,17 @@ const getNextIndex = (indexChange, selectedIndex, locations) => {
 
 export const NavScreenButtons = ({ locations, selectedIndex = 0 }) => ({
   TOP: () => {
-    ButtonAction.goToPage({ state: { selectedIndex: getNextIndex(1, selectedIndex, locations) } });
+    ButtonAction.goToPage({ state: { selectedIndex: getNextIndex(-1, selectedIndex, locations) } });
   },
   BOTTOM: () => {
     ButtonAction.goToPage({ state: { selectedIndex: getNextIndex(1, selectedIndex, locations) } });
   },
   LEFT: () => ButtonAction.goToPage('/'),
   RIGHT: () => ButtonAction.goToPage('/'),
-  SCREEN: () => ButtonAction.doNothing(),
+  SCREEN: () => ButtonAction.goToPage({
+    pathname: '/map',
+    state: { location: locations[selectedIndex] },
+  }),
 });
 
 NavScreenComponent.propTypes = {
