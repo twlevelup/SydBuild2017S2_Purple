@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CarerLocation from '../CarerLocation/CarerLocation';
 
-const ConfigForm = ({ appStore, updateStore }) => {
+const ConfigForm = ({ updateStore }) => {
   const hours = [];
   const minutes = [];
   for (let i = 0; i < 24; i++) {
@@ -46,9 +46,9 @@ const ConfigForm = ({ appStore, updateStore }) => {
     const range = document.getElementById('my-range').value;
     // console.log('time: ', document.getElementById('time').value);
     const dateTime = {
-      year: date[0],
-      month: date[1] - 1,
-      day: date[2],
+      year: date.length ? Number(date[0]) : 2017,
+      month: date.length ? Number(date[1] - 1) : 10,
+      day: date.length ? Number(date[2]) : 14,
       hour: document.getElementById('hour').value,
       minute: document.getElementById('minute').value,
     };
@@ -62,7 +62,6 @@ const ConfigForm = ({ appStore, updateStore }) => {
   return (
     <div>
       <h2>ConfigForm</h2>
-      <div> { JSON.stringify(appStore) }</div>
       <form id='dropdown-menu'>
         <select id='hour'>
           {hours}
@@ -93,11 +92,7 @@ const ConfigForm = ({ appStore, updateStore }) => {
 };
 
 ConfigForm.propTypes = {
-  appStore: PropTypes.shape().isRequired,
   updateStore: PropTypes.func.isRequired,
-};
-ConfigForm.defaultProps = {
-  appStore: { generalStore: { notification: { } } },
 };
 
 export default ConfigForm;

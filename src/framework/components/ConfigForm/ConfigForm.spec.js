@@ -25,6 +25,14 @@ describe('ConfigForm', () => {
     expect(result).toHaveText('ConfigForm');
   });
 
+  test('it should display starting date', () => {
+    expect(wrappedApp.find('#starting-date')).toBeDefined();
+  });
+
+  test('it should display color-picker', () => {
+    expect(wrappedApp.find('#color-picker')).toBeDefined();
+  });
+
   test('it should display time dropdown menu', () => {
     expect(wrappedApp.find('#dropdown-menu')).toBeDefined();
   });
