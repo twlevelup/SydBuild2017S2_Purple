@@ -83,13 +83,14 @@ export class NotificationScreenComponent extends React.Component {
   }
 
   render() {
+    const notificationDisplayState = this.state.shouldDisplayNotification;
     const notificationText = this.props.notifications[0].description;
     const notificationDate = 'Test Date';
 
     return (
       <div id='Notification-Screen'>
         {
-          this.state.shouldDisplayNotification
+          notificationDisplayState
           ? <NotificationBox
             text={ notificationText }
             date={ notificationDate }
@@ -104,7 +105,7 @@ export class NotificationScreenComponent extends React.Component {
 
 export function NotificationBox(props) {
   return (
-    <div className='notification-popup'>
+    <div id className='notification-popup'>
       <p id='textLine'>{props.text}</p>
       <p id='dateLine'>{props.date}</p>
       <button id='Dismiss-Button' onClick={ props.onClick }>Dismiss</button>
