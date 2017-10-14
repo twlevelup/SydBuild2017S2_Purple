@@ -3,52 +3,69 @@ import PropTypes from 'prop-types';
 
 import WithButtonConfigs from '../../../framework/containers/WithButtonConfigs';
 import ButtonAction from '../../../framework/util/ButtonAction';
+import './notification_screen.css';
 
 export class NotificationScreenComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentDateTime: this.validateCurrentDateTime(props.currentDateTime),
+      currentDateTime: new Date(this.getToday()),
       notificationTimes: this.parseNotifications(props.notifications),
+      shouldDisplayNotification: false,
     };
+  }
+
+  componentWillMount() {
+    this.setNotificationState();
+    this.checkNotifications();
   }
 
   getToday() {
     return Date.now();
   }
 
-  validateCurrentDateTime(currentDateTime) {
-    if (currentDateTime !== undefined) {
-      return currentDateTime;
-    }
-    return this.getToday();
+  setNotificationState() {
+    this.setState({
+      currentDateTime: new Date(this.getToday()),
+      shouldDisplayNotification: this.shouldShowNotifications(
+        this.state.currentDateTime,
+        this.state.notificationTimes[0]
+      ),
+    });
+    this.state.shouldDisplayNotification = this.shouldShowNotifications(
+        this.state.currentDateTime,
+        this.state.notificationTimes[0]
+      );
+  }
+
+  checkNotifications() {
+    setInterval(() => {
+      this.setNotificationState();
+    }, this.props.checkInterval);
   }
 
   parseNotifications(notifications) {
-    if (notifications !== undefined) {
-      return notifications.map((n) => {
-        if (n.dateTime !== undefined) {
-          return new Date(
-            n.dateTime.year,
-            n.dateTime.month,
-            n.dateTime.day,
-            n.dateTime.hour,
-            n.dateTime.minute
-          );
-        }
-        return undefined;
-      });
+    if (!notifications) {
+      return [];
     }
-    return undefined;
+
+    return notifications
+      .filter(n => n.dateTime)
+      .map(n => new Date(
+          n.dateTime.year,
+          n.dateTime.month,
+          n.dateTime.day,
+          n.dateTime.hour,
+          n.dateTime.minute
+        )
+      );
   }
 
-
-  // componentDidMount() {
-  //   setInterval(() => {
-  //   }, 10000);
-  // }
-
   shouldShowNotifications(currentDateTime, notificationDateTime) {
+    if (!(notificationDateTime instanceof Date)) {
+      return false;
+    }
+
     const currentHour = currentDateTime.getHours();
     const currentMinutes = currentDateTime.getMinutes();
 
@@ -59,44 +76,57 @@ export class NotificationScreenComponent extends React.Component {
           currentMinutes === notificationMinutes;
   }
 
+  handleDismiss() {
+    this.setState({
+      shouldDisplayNotification: false,
+    });
+  }
+
   render() {
-    const notificationContainer = this.shouldShowNotifications(this.state.currentDateTime,
-      this.props.notificationDateTime) ?
-        <div id='Notification-container' /> : <div />;
-    const currentTime = this.state.currentDateTime.getFullYear();
+    const notificationText = this.props.notifications[0].description;
+    const notificationDate = 'Test Date';
 
     return (
-      <div id='Notification-page'>
-        <p> Notifications are shown below: </p>
-        <p className='currentTime'>Time: {currentTime}</p>
-        {notificationContainer}
+      <div id='Notification-Screen'>
+        {
+          this.state.shouldDisplayNotification
+          ? <NotificationBox
+            text={ notificationText }
+            date={ notificationDate }
+            onClick={ () => this.handleDismiss() }
+          />
+          : null
+        }
       </div>
     );
   }
 }
 
+export function NotificationBox(props) {
+  return (
+    <div className='notification-popup'>
+      <p id='textLine'>{props.text}</p>
+      <p id='dateLine'>{props.date}</p>
+      <button id='Dismiss-Button' onClick={ props.onClick }>Dismiss</button>
+    </div>
+  );
+}
+
 NotificationScreenComponent.defaultProps = {
-  currentDateTime: new Date(Date.now()),
-  notificationDateTime: new Date(Date.now()),
-  notifications: [
-    {
-      description: 'default',
-      dateTime: {
-        dateTime: {
-          year: 2017,
-          month: 9,
-          day: 4,
-          hour: 19,
-          minute: 59,
-        },
-      },
+  notifications: {
+    'description': 'Default',
+    'dateTime': {
+      'year': 2000,
+      'month': 0,
+      'day': 0,
+      'hour': 0,
+      'minute': 0,
     },
-  ],
+  },
+  checkInterval: 60000,
 };
 
 NotificationScreenComponent.propTypes = {
-  currentDateTime: PropTypes.instanceOf(Date),
-  notificationDateTime: PropTypes.instanceOf(Date),
   notifications: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string,
     dateTime: PropTypes.shape({
@@ -107,7 +137,15 @@ NotificationScreenComponent.propTypes = {
       minute: PropTypes.number,
     }),
   })),
+  checkInterval: PropTypes.number,
 };
+
+NotificationBox.propTypes = {
+  text: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 
 export const NotificationScreenButtons = {
   RIGHT: () => ButtonAction.goToPage('/'),
@@ -120,3 +158,4 @@ export default WithButtonConfigs(
   NotificationScreenComponent,
   NotificationScreenButtons
 );
+

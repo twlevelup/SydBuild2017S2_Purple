@@ -1,32 +1,12 @@
 [
   {
-    "description": "Notification 1",
+    "description": "Take Medication",
     "dateTime": {
       "year": 2017,
-      "month": 9,
-      "day": 4,
-      "hour": 19,
-      "minute": 59
-    }
-  },
-  {
-    "description": "Notification 2",
-    "dateTime": {
-      "year": 2017,
-      "month": 9,
-      "day": 4,
-      "hour": 19,
-      "minute": 58
-    }
-  },
-  {
-    "description": "Notifiaction 3",
-    "dateTime": {
-      "year": 2017,
-      "month": 9,
-      "day": 10,
-      "hour": 6,
-      "minute": 40
+      "month": 10,
+      "day": 14,
+      "hour": 11,
+      "minute": 36
     }
   }
 ]
