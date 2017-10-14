@@ -142,7 +142,7 @@ NotificationScreenComponent.defaultProps = {
     'fontSize': 14,
     'frequency': 'weekly',
   },
-  checkInterval: 5000,
+  checkInterval: 60000,
 };
 
 NotificationScreenComponent.propTypes = {
@@ -163,14 +163,20 @@ NotificationScreenComponent.propTypes = {
 };
 
 NotificationBox.defaultProps = {
-  styling: 'color: blue;',
+  styling: {
+    color: 'blue',
+    fontSize: 14,
+  },
 };
 
 NotificationBox.propTypes = {
   text: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  styling: PropTypes.string,
+  styling: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+  }),
 };
 
 
