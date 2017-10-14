@@ -83,15 +83,30 @@ export class NotificationScreenComponent extends React.Component {
   }
 
   render() {
-    const notificationDisplayState = this.state.shouldDisplayNotification;
-    const notificationText = this.props.notifications[0].description;
-    const notificationDate = 'Test Date';
+    const notification = this.props.notifications[0];
 
+    const notificationDisplayState = this.state.shouldDisplayNotification;
+    const notificationText = notification.description;
+    const notificationDate = `${ notification.dateTime.hour }:${ notification.dateTime.minute }`;
+
+    const notificationStyle = {
+      color: notification.color,
+      fontSize: notification.fontSize,
+    };
+
+    // const notificationStyle = `"color:${
+    //   this.props.notifications[0].color
+    //   }; font-size:${
+    //   this.props.notifications[0].fontSize
+    //   };"`;
+
+    // console.log(notificationStyle);
     return (
       <div id='Notification-Screen'>
         {
           notificationDisplayState
           ? <NotificationBox
+            styling={ notificationStyle }
             text={ notificationText }
             date={ notificationDate }
             onClick={ () => this.handleDismiss() }
@@ -105,7 +120,7 @@ export class NotificationScreenComponent extends React.Component {
 
 export function NotificationBox(props) {
   return (
-    <div id className='notification-popup'>
+    <div style={ props.styling } className='notification-popup'>
       <p id='textLine'>{props.text}</p>
       <p id='dateLine'>{props.date}</p>
       <button id='Dismiss-Button' onClick={ props.onClick }>Dismiss</button>
@@ -123,8 +138,11 @@ NotificationScreenComponent.defaultProps = {
       'hour': 0,
       'minute': 0,
     },
+    'color': 'blue',
+    'fontSize': 14,
+    'frequency': 'weekly',
   },
-  checkInterval: 60000,
+  checkInterval: 5000,
 };
 
 NotificationScreenComponent.propTypes = {
@@ -137,14 +155,22 @@ NotificationScreenComponent.propTypes = {
       hour: PropTypes.number,
       minute: PropTypes.number,
     }),
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+    frequency: PropTypes.string,
   })),
   checkInterval: PropTypes.number,
+};
+
+NotificationBox.defaultProps = {
+  styling: 'color: blue;',
 };
 
 NotificationBox.propTypes = {
   text: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  styling: PropTypes.string,
 };
 
 

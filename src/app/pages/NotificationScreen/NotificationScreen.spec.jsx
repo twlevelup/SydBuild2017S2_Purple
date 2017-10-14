@@ -17,6 +17,9 @@ describe('<NotificationScreenComponent />', () => {
       'hour': 19,
       'minute': 35,
     },
+    'color': 'green',
+    'fontSize': 12,
+    'frequency': 'weekly',
   }];
 
   function composeComponent(notifications) {
@@ -51,6 +54,9 @@ describe('<NotificationScreenComponent />', () => {
           'hour': 19,
           'minute': 34,
         },
+        'color': 'green',
+        'fontSize': 12,
+        'frequency': 'weekly',
       }];
 
       const component = composeComponent(notifications);
@@ -68,6 +74,9 @@ describe('<NotificationScreenComponent />', () => {
           'hour': 18,
           'minute': 34,
         },
+        'color': 'green',
+        'fontSize': 12,
+        'frequency': 'weekly',
       }];
       const component = composeComponent(differentTimeNotification);
       expect(component.children().find('NotificationBox')).toHaveLength(0);
@@ -76,6 +85,7 @@ describe('<NotificationScreenComponent />', () => {
 
   describe('NotificationBox', () => {
     it('Should have some props', () => {
+      // const styling = { color: 'blue' };
       const wrapper = shallow(<NotificationBox text='test' date='now' onClick={ jest.fn() } />);
       expect(wrapper).toContainReact(<p id='textLine'>test</p>);
       expect(wrapper).toContainReact(<p id='dateLine'>now</p>);
@@ -112,19 +122,6 @@ describe('<NotificationScreenComponent />', () => {
     });
   });
 
-
-  describe('checkNotification states', () => {
-    test('should not register input that is not a list of notifications', () => {
-      const notifications = [{
-        'a': 'INVALID',
-        'b': 'INVALID',
-      }];
-
-      const component = composeComponent(notifications);
-      expect(component.state().notificationTimes).toHaveLength(0);
-    });
-  });
-
   describe('test handle dismiss', () => {
     const component = composeComponent(defaultNotifications);
     component.instance().handleDismiss();
@@ -143,6 +140,9 @@ describe('<NotificationScreenComponent />', () => {
             'hour': 0,
             'minute': 0,
           },
+          'color': 'green',
+          'fontSize': 12,
+          'frequency': 'weekly',
         },
         {
           'description': 'Notification 2',
@@ -153,6 +153,9 @@ describe('<NotificationScreenComponent />', () => {
             'hour': 1,
             'minute': 1,
           },
+          'color': 'green',
+          'fontSize': 12,
+          'frequency': 'weekly',
         },
         {
           'a': 'INVALID',
